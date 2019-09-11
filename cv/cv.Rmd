@@ -1,0 +1,124 @@
+---
+name: Alexander
+surname: Piper
+position: "PhD Candidate"
+address: "AgriBio, Centre for AgriBioscience, 5 Ring Road, Bundoora Victoria"
+phone: "+61 488 040 119"
+profilepic: profile.JPG
+#www: alexpiper.github.io/
+email: "alexander.piper@agriculture.vic.gov.au"
+twitter: bigsnpenergy
+github: alexpiper
+#linkedin: alexander-piper-702bb693/
+date: "`r format(Sys.time(), '%B %Y')`"
+aboutme: "Alexander Piper is a graduate student with Agriculture Victoria Research and La Trobe University whose research uses high-throughput sequencing and computational biology to improve detection and control of insect pests."
+output: vitae::awesomecv
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, warning = FALSE, message = FALSE)
+library(vitae)
+library(scholar)
+library(tidyverse)
+```
+
+# Education
+
+```{r Education}
+tibble::tribble(
+  ~ Degree, ~ Year, ~ Institution, ~ Where, ~Why,
+  "PhD Candidate", "2017-Present", "La Trobe University", "Melbourne, Australia","Thesis title: Genomic tools for detection of insect pests",
+  "Bachelor of Science (Biology)", "2015", "Queensland University of Technology", "Brisbane, Australia","Biotechnology and Genetics Minor",
+    "Bachelor of Science (Biology)", "2015", "Queensland University of Technology", "Brisbane, Australia","Chemistry Minor"
+) %>% 
+  detailed_entries(what=Degree, when=Year, with=Institution, where=Where, why=Why)
+```
+
+# Research experience
+
+```{r}
+tibble::tribble(
+  ~Year, ~Position, ~Institution, ~Where, ~Why,
+"2017-Present", "PhD Candidate", "La Trobe University", "Melbourne, Australia", "Developing a quantitative Metabarcoding pipeline for high-throughput identification of invasive insects within mixed trap samples",
+"2017-Present", "PhD Candidate", "La Trobe University", "Melbourne, Australia", "Using population genomics to understand the historical demography and seasonal population dynamics of a pest fruit fly",
+  
+"2017-Present", "Research Scientist (Part time) - Computational Biology", "Agriculture Victoria Research", "Melbourne, Australia", "Analytical support for the cross-industry iMapPESTS Metabarcoding surveillance program.",
+  
+"2016-2017", "Research Scientist - Chemical Ecology", "Agriculture Victoria Research", "Melbourne, Australia", "Utilizing microbial symbionts of horticultural pests to develop novel insect attractants.",
+  
+"2015-2016", "Laboratory Assistant - Microbial Ecology", "Queensland University of Technology","Brisbane, Australia", "Isolation and physiological characterisation of environmental microbes from insects and host plants.",
+
+"2015", "Vacation Research Scholar — Microbiology", "Queensland University of Technology","Brisbane, Australia", "Exploratory research into fungal symbionts of an agricultural pest insect funded by a university scholarship.",
+  
+"2015", "B.Sc. Capstone Research Project — Molecular Ecology", "Queensland University of Technology","Brisbane, Australia", "Developing an environmental DNA PCR assay for early detection of an invasive freshwater fish species.",
+
+"2013-2014", "Undergraduate Research — Physiological Genomics","Queensland University of Technology","Brisbane, Australia", "Assisting a PhD student mapping the transcriptome of cnidarian sea anemone."
+)%>% detailed_entries(with = Institution, when = Year, what=Position, where=Where, why = Why)
+```
+
+# Journal articles
+
+```{r publications}
+published <- scholar::get_publications("zrxQbOsAAAAJ&hl") %>% 
+  distinct(title, .keep_all = TRUE) %>%
+  transmute(bibtype = "Article", author = as.character(author),
+            title = as.character(title),
+            journaltitle = as.character(journal), year) 
+
+prep <- tibble::tribble(~bibtype, ~author, ~title, ~year, ~note,
+"Unpublished","J. Batovska, A.M. Piper, I. Valenzuela, J.P. Cunningham and M.J. Blacket", "Developing a non-destructive metabarcoding protocol for detection of Invasive insects in bulk trap catches", 2019,"(In Prep)"
+) 
+
+bind_rows(published, prep) %>% 
+  dplyr::arrange(-year, note) %>%
+  mutate(key = row_number()) %>% 
+  RefManageR::as.BibEntry() %>% 
+  RefManageR::WriteBib("piper.bib")
+
+
+bibliography_entries("piper.bib") 
+```
+
+  
+# Conference talks
+
+```{r talks}
+tibble::tribble(
+  ~name, ~event, ~ location, ~year,
+  "An updated molecular toolbox for Biosecurity","Agriculture Victoria Regional Science Conference","Tatura, Victoria", 2019,
+ "Detecting the unexpected, DNA Metabarcoding for high-throughput insect surveillance", "AgriBio Science Conference", "Melboure, Victoria", 2018,
+  "Quality control considerations for Metabarcoding", "Victorian DNA Barcoding Workshop","Melbourne, Victoria", 2018,
+  "Detecting the unexpected, DNA Metabarcoding for high-throughput insect surveillance", "Australian Entomological Society Conference", "Alice Springs, Northern Territory", 2018,
+  "Quality control considerations for Metabarcoding", "iMapPESTS Metabarcoding Workshop", "Melbourne, Victoria", 2018,
+  "The importance of Yeasts in the ecology and control of Queensland Fruit Fly", "SciPlant 17", "Brisbane, Queensland", 2017,
+  "Yeast-insect interactions in the Queensland fruit fly (Bactrocera tryoni)", "Australian Entomological Society Conference", "Terrigal, New South Wales", 2017,
+  "A microbial hypothesis for Queensland fruit fly host selection", "Biology of Tephritid Fruit Flies Meeting IV", "Melbourne, Victoria", 2016
+) %>%  detailed_entries(
+  what = name,
+  when = year,
+  with = event,
+  where = location
+  )
+```
+
+# Synergistic activities
+
+* Member of The Society for Molecular Biology and Evolution
+* Member of The Australian Bioinformatics and Computational Biology Society
+* Member of The Australain Entomological Society
+* Participant in the Insect Genetic Technologies Research Coordination Network (IGTRCN) 
+* Reviewer for Journal of Economic Entomology
+
+# References
+
+* __Assoc Prof. Paul Cunningham__  
+  Research Leader — Invertebrate and Weed Sciences   
+  Agriculture Victoria Research  
+  Phone: +613 9032 7382  
+  Email: paul.cunningham@agriculture.vic.gov.au  
+
+* __Dr. Noel Cogan__  
+  Senior Research Scientist  
+  Agriculture Victoria Research  
+  Phone: +613 9032 7096  
+  Email: noel.cogan@agriculture.vic.gov.au  
