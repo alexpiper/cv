@@ -39,8 +39,8 @@ tibble::tribble(
 ```{r}
 tibble::tribble(
   ~Year, ~Position, ~Institution, ~Where, ~Why,
-"2017-Present", "PhD Candidate", "La Trobe University", "Melbourne, Australia", "Developing a quantitative Metabarcoding pipeline for high-throughput identification of invasive insects within mixed trap samples",
-"2017-Present", "PhD Candidate", "La Trobe University", "Melbourne, Australia", "Using population genomics to understand the historical demography and seasonal population dynamics of a pest fruit fly",
+"2017-Present", "PhD Candidate", "La Trobe University", "Melbourne, Australia", "Developing a quantitative Metabarcoding pipeline for high-throughput identification of invasive insects within mixed trap samples.",
+"2017-Present", "PhD Candidate", "La Trobe University", "Melbourne, Australia", "Using population genomics to explore the historical demography and seasonal population dynamics of a pest fruit fly.",
   
 "2017-Present", "Research Scientist (Part time) - Computational Biology", "Agriculture Victoria Research", "Melbourne, Australia", "Analytical support for the cross-industry iMapPESTS Metabarcoding surveillance program.",
   
@@ -50,9 +50,9 @@ tibble::tribble(
 
 "2015", "Vacation Research Scholar — Microbiology", "Queensland University of Technology","Brisbane, Australia", "Exploratory research into fungal symbionts of an agricultural pest insect funded by a university scholarship.",
   
-"2015", "B.Sc. Capstone Research Project — Molecular Ecology", "Queensland University of Technology","Brisbane, Australia", "Developing an environmental DNA PCR assay for early detection of an invasive freshwater fish species.",
+"2015", "B.Sc. Capstone Research Project — Molecular Ecology", "Queensland University of Technology","Brisbane, Australia", "Developing an environmental DNA PCR assay for detection of an invasive freshwater fish species.",
 
-"2013-2014", "Undergraduate Research — Physiological Genomics","Queensland University of Technology","Brisbane, Australia", "Assisting a PhD student mapping the transcriptome of cnidarian sea anemone."
+"2013-2014", "Undergraduate Research — Physiological Genomics","Queensland University of Technology","Brisbane, Australia", "Assisting a PhD student to validate transcriptomics results with qRT-PCR"
 )%>% detailed_entries(with = Institution, when = Year, what=Position, where=Where, why = Why)
 ```
 
@@ -90,7 +90,7 @@ tibble::tribble(
   "Quality control considerations for Metabarcoding", "Victorian DNA Barcoding Workshop","Melbourne, Victoria", 2018,
   "Detecting the unexpected, DNA Metabarcoding for high-throughput insect surveillance", "Australian Entomological Society Conference", "Alice Springs, Northern Territory", 2018,
   "Quality control considerations for Metabarcoding", "iMapPESTS Metabarcoding Workshop", "Melbourne, Victoria", 2018,
-  "The importance of Yeasts in the ecology and control of Queensland Fruit Fly", "SciPlant 17", "Brisbane, Queensland", 2017,
+  "The importance of Yeasts in the ecology and control of the Queensland Fruit Fly", "SciPlant 17", "Brisbane, Queensland", 2017,
   "Yeast-insect interactions in the Queensland fruit fly (Bactrocera tryoni)", "Australian Entomological Society Conference", "Terrigal, New South Wales", 2017,
   "A microbial hypothesis for Queensland fruit fly host selection", "Biology of Tephritid Fruit Flies Meeting IV", "Melbourne, Victoria", 2016
 ) %>%  detailed_entries(
