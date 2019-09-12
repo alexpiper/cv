@@ -2,7 +2,7 @@
 name: Alexander
 surname: Piper
 position: "PhD Candidate"
-address: "AgriBio, Centre for AgriBioscience, 5 Ring Road, Bundoora Victoria"
+address: "AgriBio, Centre for AgriBioscience, 5 Ring Road, Bundoora, Victoria, Australia"
 phone: "+61 488 040 119"
 profilepic: profile.JPG
 #www: alexpiper.github.io/
@@ -39,12 +39,12 @@ tibble::tribble(
 ```{r}
 tibble::tribble(
   ~Year, ~Position, ~Institution, ~Where, ~Why,
-"2017-Present", "PhD Candidate", "La Trobe University", "Melbourne, Australia", "Developing a quantitative Metabarcoding pipeline for high-throughput identification of invasive insects within mixed trap samples.",
+"2017-Present", "PhD Candidate", "La Trobe University", "Melbourne, Australia", "Developing a quantitative metabarcoding pipeline for high-throughput identification of invasive insects within mixed trap samples.",
 "2017-Present", "PhD Candidate", "La Trobe University", "Melbourne, Australia", "Using population genomics to explore the historical demography and seasonal population dynamics of a pest fruit fly.",
   
-"2017-Present", "Research Scientist (Part time) - Computational Biology", "Agriculture Victoria Research", "Melbourne, Australia", "Analytical support for the cross-industry iMapPESTS Metabarcoding surveillance program.",
+"2017-Present", "Research Scientist (Part time) - Computational Biology", "Agriculture Victoria Research", "Melbourne, Australia", "Analytical support for the cross-industry iMapPESTS metabarcoding surveillance program.",
   
-"2016-2017", "Research Scientist - Chemical Ecology", "Agriculture Victoria Research", "Melbourne, Australia", "Utilizing microbial symbionts of horticultural pests to develop novel insect attractants.",
+"2016-2017", "Research Scientist - Chemical Ecology", "Agriculture Victoria Research", "Melbourne, Australia", "Utilising microbial symbionts of horticultural pests to develop novel insect attractants.",
   
 "2015-2016", "Laboratory Assistant - Microbial Ecology", "Queensland University of Technology","Brisbane, Australia", "Isolation and physiological characterisation of environmental microbes from insects and host plants.",
 
@@ -86,10 +86,10 @@ bibliography_entries("piper.bib")
 tibble::tribble(
   ~name, ~event, ~ location, ~year,
   "An updated molecular toolbox for Biosecurity","Agriculture Victoria Regional Science Conference","Tatura, Victoria", 2019,
- "Detecting the unexpected, DNA Metabarcoding for high-throughput insect surveillance", "AgriBio Science Conference", "Melboure, Victoria", 2018,
-  "Quality control considerations for Metabarcoding", "Victorian DNA Barcoding Workshop","Melbourne, Victoria", 2018,
-  "Detecting the unexpected, DNA Metabarcoding for high-throughput insect surveillance", "Australian Entomological Society Conference", "Alice Springs, Northern Territory", 2018,
-  "Quality control considerations for Metabarcoding", "iMapPESTS Metabarcoding Workshop", "Melbourne, Victoria", 2018,
+ "Detecting the unexpected, DNA metabarcoding for high-throughput insect surveillance", "AgriBio Science Conference", "Melboure, Victoria", 2018,
+  "Quality control considerations for metabarcoding", "Victorian DNA Barcoding Workshop","Melbourne, Victoria", 2018,
+  "Detecting the unexpected, DNA metabarcoding for high-throughput insect surveillance", "Australian Entomological Society Conference", "Alice Springs, Northern Territory", 2018,
+  "Quality control considerations for metabarcoding", "iMapPESTS metabarcoding Workshop", "Melbourne, Victoria", 2018,
   "The importance of Yeasts in the ecology and control of the Queensland Fruit Fly", "SciPlant 17", "Brisbane, Queensland", 2017,
   "Yeast-insect interactions in the Queensland fruit fly (Bactrocera tryoni)", "Australian Entomological Society Conference", "Terrigal, New South Wales", 2017,
   "A microbial hypothesis for Queensland fruit fly host selection", "Biology of Tephritid Fruit Flies Meeting IV", "Melbourne, Victoria", 2016
