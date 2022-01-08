@@ -8,52 +8,62 @@ phone: "+61 488 040 119"
 email: "alexander.piper@agriculture.vic.gov.au"
 twitter: bigsnpenergy
 github: alexpiper
+researchgate: Alexander-Piper
+orcid: 0000-0002-0664-7564
 #linkedin: alexander-piper-702bb693/
 date: "`r format(Sys.time(), '%B %Y')`"
-aboutme: "Alexander Piper is a Research Scientist with Agriculture Victoria Research whose research uses high-throughput sequencing and computational biology to improve detection and control of insect pests."
-headcolor: 414141
-output: vitae::awesomecv
+#aboutme: ""
+headcolor: 00573f
+output: 
+  vitae::awesomecv:
+    keep_tex: false
+always_allow_html: yes
 sansfont: Lora
 ---
-```{r setup, include=FALSE}
+```{r setup, message=FALSE, warning=FALSE, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE, warning = FALSE, message = FALSE)
 library(vitae)
 library(scholar)
 library(tidyverse)
+library(fontawesome)
 ```
 
-# Education
+\paragraphstyle{I am a Molecular Biologist and Bioinformatician specialising in the production and analysis of large-scale genomic datasets for fundemental and applied ecological studies. I have experience conducting both laboratory and field experiments, from the initial experimental design through to statistical analysis and publication in peer reviewed scientific journals. I have familiarity with multiple programming languages, primarily R and bash, which i use to analyse, visualise, and communicate complex datasets. I am currently based with Agriculture Victoria Research developing high-throughput sequencing based diagnostics to improve detection and control of invertebrate pests.}
+
+\faIcon{university}  Education
+==================================
 
 ```{r Education}
 tibble::tribble(
   ~ Degree, ~ Year, ~ Institution, ~ Where, ~Why,
-  "Doctor of Philosophy", "2021", "School of Applied Systems Biology, College of Science, Health, and Engineering, La Trobe University", "Melbourne, Australia","Thesis title: Genomic Bio-surveillance for Insect Pests",
+  "Doctor of Philosophy (Invertebrate Biology)", "2021", "La Trobe University", "Melbourne, Australia","Thesis title: Genomic Biosurveillance for Insect Pests",
   "Bachelor of Science (Biology)", "2015", "Queensland University of Technology", "Brisbane, Australia","Biotechnology and Genetics Minor",
     "Bachelor of Science (Biology)", "2015", "Queensland University of Technology", "Brisbane, Australia","Chemistry Minor"
 ) %>% 
   detailed_entries(what=Degree, when=Year, with=Institution, where=Where, why=Why)
 ```
-
-# Research experience
+\faIcon{flask}  Research Experience
+============================
 
 ```{r Experience}
 tibble::tribble(
   ~Year, ~Position, ~Institution, ~Where, ~Why,
-"2017-2021", "Research Scientist", "Agriculture Victoria Research", "Melbourne, Australia", "Developing high-throughput sequencing assays and bioinformatic pipelines for diagnostics of insect pests.",
+"2017-2021", "Research Scientist", "Agriculture Victoria Research", "Melbourne, Australia", "Developing high-throughput sequencing assays and bioinformatic pipelines for identification of insect pests within bulk trap samples.",
   
 "2016-2017", "Research Scientist", "Agriculture Victoria Research", "Melbourne, Australia", "Investigating the role of microbial volatile organic compounds in the ecology of Bactrocera fruit flies, and their potential for application in novel insect attractant formulations.",
   
-"2015-2016", "Laboratory Assistant", "Queensland University of Technology","Brisbane, Australia", "Isolation and physiological characterisation of environmental microbes from insects and host plants.",
+"2015-2016", "Laboratory Assistant", "Queensland University of Technology","Brisbane, Australia", "Isolation and physiological characterisation of environmental microbes from insect pests and their host fruits.",
 
 "2015", "Vacation Research Scholar", "Queensland University of Technology","Brisbane, Australia", "Exploratory research into fungal symbionts of an agricultural pest insect funded by a university scholarship.",
   
 "2015", "B.Sc. Capstone Research Project", "Queensland University of Technology","Brisbane, Australia", "Developing an environmental DNA PCR assay for detection of an invasive freshwater fish species.",
 
-"2013-2014", "Undergraduate Research","Queensland University of Technology","Brisbane, Australia", "Validation of transcriptomics differentially expressed genes using qRT-PCR."
+"2013-2014", "Undergraduate Research","Queensland University of Technology","Brisbane, Australia", "Validation of transcriptomics assays using qRT-PCR."
 )%>% detailed_entries(with = Institution, when = Year, what=Position, where=Where, why = Why)
 ```
 
-# Journal articles
+\faIcon{file-alt}  Journal articles
+============================
 
 ```{r publications}
 published <- scholar::get_publications("zrxQbOsAAAAJ&hl") %>% 
@@ -68,6 +78,7 @@ prep <- tibble::tribble(~bibtype, ~author, ~title, ~year, ~notes, ~journaltitle,
 ) 
 
 bind_rows(published, prep) %>%
+  dplyr::filter(!journaltitle  == "La Trobe") %>%
   dplyr::arrange(match(bibtype, c("Unpublished","Article")), desc(year)) %>%
   mutate(key = row_number()) %>% 
   RefManageR::as.BibEntry() %>% 
@@ -77,8 +88,8 @@ bind_rows(published, prep) %>%
 bibliography_entries("piper.bib") 
 ```
 
-
-# Preprint articles
+\faIcon{file-powerpoint}  Preprint articles
+============================
 
 ```{r preprints}
 preprint <- scholar::get_publications("zrxQbOsAAAAJ&hl") %>% 
@@ -99,14 +110,14 @@ preprint %>%
 bibliography_entries("piper_preprint.bib") 
 ```
 
-  
-# Selected scientific presentations
+\faIcon{comments}  Selected scientific presentations
+============================  
 
 ```{r talks}
 tibble::tribble(
   ~name, ~event, ~ location, ~year,
   "A DNA metabarcoding assay for early detection of Spotted Wing Drosophila within unsorted bulk trap catches.","Australian Entomological Society Conference", "Online", 2021,
-  "Detecting the Unexpected: Invasive Insect Surveillance using Non-Destructive DNA Metabarcoding.","International Congress of Entomology", "Helsinki, Finland (Cancelled due to COVID19)", 2020,
+  "Detecting the Unexpected: Invasive Insect Surveillance using Non-Destructive DNA Metabarcoding.","International Congress of Entomology", "Helsinki, Finland (Postponed)", 2020,
   "Towards quantitative and high-throughput insect surveillance using DNA Metabarcoding.","Australian Entomological Society Conference", "Brisbane, Queensland", 2019,
   "An updated molecular toolbox for Biosecurity.","Agriculture Victoria Regional Science Conference","Tatura, Victoria", 2019,
  "Detecting the unexpected, DNA metabarcoding for high-throughput insect surveillance.", "AgriBio Science Conference", "Melboure, Victoria", 2018,
@@ -124,37 +135,57 @@ tibble::tribble(
   )
 ```
 
-# Software development
-
+\faIcon{laptop-code}  Software development
+============================  
 
 ```{r r-pkgs}
 tribble(
   ~ pkg, ~ when, ~ role, ~ details,
-  "taxreturn", "2021", "Lead developer", "An R package for curating public DNA sequence databases for metabarcoding studies.",
-  "piperline", "2021", "Lead developer", "A nextflow-based metabarcoding pipeline for detection of regulated species."
+  "taxreturn", "2021", "Lead developer", "An R package for retrieving and curating public DNA sequence datasets for use in metabarcoding studies.",
+  "piperline", "2021", "Lead developer", "A nextflow-based pipeline for identification of regulated species in metabarcoding datasets."
 ) %>% 
   brief_entries(glue::glue("\\textbf{<pkg>}: <role> \\newline <details>", .open = "<", .close = ">"), paste0(when, "\\newline"), .protect = FALSE)
 ```
 
-# Society memberships
+\faIcon{hands-helping}  Service
+============================  
+
+* Reviewer for EU-funded project 'VALITEST' Work Package 2 - Guidelines for validation and application of non-targeted HTS diagnostic procedures in plant pest diagnostics.
+
+* Reviewer for Molecular Ecology Resources (2), Evolutionary Ecology (1), Computational and Structural Biotechnology Journal (1), and Journal of Economic Entomology (1).
+
+* Participant in the Insect Genetic Technologies Research Coordination Network (IGTRCN).
+
+\faIcon{medal}  Awards & Distinctions
+============================  
+
+```{r awards}
+tribble(
+  ~ area, ~ org, ~ date,
+  "Emerging Scientist Award", "Agriculture Victoria", "2019",
+  "Vacation Research Scholarship", "QUT", "2015",
+  "Deans Scholar award for Excellence", "QUT", "2015",
+  "STEM Overseas Exchange Scholarship", "QUT", "2014",
+  "Deans Scholar award for Excellence", "QUT", "2014"
+) %>%
+  brief_entries(what = area, when = date, with = org, .protect = F)
+```
+
+\faIcon{users}  Society memberships
+============================  
 
 * Member, Australian Bioinformatics and Computational Biology Society.
 
 * Member, Australian Entomological Society.
 
+* Member, Statistical Society of Australia.
+
 * Member, Society for Molecular Biology and Evolution.
 
-* Member, International Society for Computational Biology
+* Member, International Society for Computational Biology.
 
-# Synergistic activities
-
-* Reviewer for VALITEST Work Package 2 - Guidelines for validation and application of non-targeted HTS diagnostic procedures in plant pest diagnostics.
-
-* Reviewer for Molecular Ecology Resources, Evolutionary Ecology, and Journal of Economic Entomology.
-
-* Participant in the Insect Genetic Technologies Research Coordination Network (IGTRCN).
-
-# References
+\faIcon{comment}  References
+============================ 
 
 * __Assoc Prof. Paul Cunningham__  
   Research Leader — Invertebrate and Weed Sciences   
@@ -163,7 +194,7 @@ tribble(
   Email: paul.cunningham@agriculture.vic.gov.au  
 
 * __Dr. Noel Cogan__  
-  Research Leader — Molecular Genetics 
+  Research Leader — Molecular Genetics   
   Agriculture Victoria Research  
   Phone: +613 9032 7096  
   Email: noel.cogan@agriculture.vic.gov.au  
@@ -171,5 +202,5 @@ tribble(
 * __Dr. Mark Blacket__  
   Senior Research Scientist — Invertebrate and Weed Sciences   
   Agriculture Victoria Research  
-  Phone: +613 9032 7333 
+  Phone: +613 9032 7333   
   Email: mark.blacket@agriculture.vic.gov.au 
