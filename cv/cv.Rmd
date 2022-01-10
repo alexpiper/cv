@@ -142,7 +142,8 @@ tibble::tribble(
 tribble(
   ~ pkg, ~ when, ~ role, ~ details,
   "taxreturn", "2021", "Lead developer", "An R package for retrieving and curating public DNA sequence datasets for use in metabarcoding studies.",
-  "piperline", "2021", "Lead developer", "A nextflow-based pipeline for identification of regulated species in metabarcoding datasets."
+  "piperline", "2021", "Lead developer", "A nextflow-based pipeline for identification of regulated species in metabarcoding datasets.",
+  "seqateurs", "2021", "Lead developer", "An R package implementing common data transformations for metabarcoding datasets"
 ) %>% 
   brief_entries(glue::glue("\\textbf{<pkg>}: <role> \\newline <details>", .open = "<", .close = ">"), paste0(when, "\\newline"), .protect = FALSE)
 ```
@@ -175,14 +176,20 @@ tribble(
 ============================  
 
 * Member, Australian Bioinformatics and Computational Biology Society.
-
 * Member, Australian Entomological Society.
-
 * Member, Statistical Society of Australia.
-
 * Member, Society for Molecular Biology and Evolution.
-
 * Member, International Society for Computational Biology.
+
+\faIcon{award}  Certificates
+============================  
+
+* Certificate IV Training and Assessment
+* Certificate IV Interactive Digital Media
+* Certificate III Information Technology
+* SSI Open Water Diver Instructor 
+* SSI Stress and Rescue Diver Instructor
+* Advanced First Aid, CPR & Oxygen
 
 \faIcon{comment}  References
 ============================ 
